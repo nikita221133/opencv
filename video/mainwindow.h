@@ -24,6 +24,8 @@ private slots:
 
     void update();
 
+    void on_video_clicked();
+
 private:
     Ui::MainWindow *ui;
     cv::Mat img;

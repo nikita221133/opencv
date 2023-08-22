@@ -21,8 +21,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::update()
 {
-    if (!vc.read(img))
-        return;
+//    if (!vc.read(img))
+//        return;
+
+    vc >> img;
+    if (vc.isOpened())
+        qDebug() << vc.getBackendName().c_str();
     if (ui->blur->isChecked())
     {
         cv::blur(img, img, cv::Size(8,8));
@@ -83,3 +87,14 @@ void MainWindow::on_openFile_clicked()
 }
 
 
+
+void MainWindow::on_video_clicked()
+{
+//    vc = cv::VideoCapture(0);
+    vc.open(0, cv::CAP_DSHOW);
+
+    if (!vc.isOpened())
+    {
+        qDebug() << "Pizdec";
+    }
+}

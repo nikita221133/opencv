@@ -26,9 +26,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    cv::Mat img_thr, img_raw, img_hsv, trans, img_trans;
-    QImage image, image_thr, image_mat;
-    QPixmap pixel, pixel_thr, pixel_mat;
+    cv::Mat img_thr, img_raw, img_hsv, trans, img_trans, img_mat_thr;
+    QImage image, image_thr, image_mat, image_mat_thr;
+    QPixmap pixel, pixel_thr, pixel_mat, pixel_mat_thr;
     cv::VideoCapture vc;
     QTimer* timer;
     cv::Point2f points[4];

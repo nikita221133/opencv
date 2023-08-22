@@ -13,12 +13,16 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(OpenCV REQUIRED)
 
+
+
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
 )
+
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(untitled7
@@ -43,7 +47,9 @@ else()
     endif()
 endif()
 
+
 target_link_libraries(untitled7 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${OpenCV_LIBS})
+
 
 set_target_properties(untitled7 PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
